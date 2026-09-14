@@ -1,0 +1,78 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Screens.TipScreen"
+             Title="TipScreen">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".3*" />
+            <RowDefinition Height=".7*" />
+        </Grid.RowDefinitions>
+        <Border Padding="10" BackgroundColor="{StaticResource FunkyColor}"
+               Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".1*" />
+                    <RowDefinition Height=".9*" />
+                </Grid.RowDefinitions>
+
+                <Label Text="Tip Amount" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" 
+                    HorizontalOptions="Center" VerticalOptions="Center" />
+
+                <VerticalStackLayout Grid.Row="1" Grid.Column="0" 
+                                       HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="{Binding TotalTip}" FontSize="30" 
+                        HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="Tip Per User" 
+                        HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+
+                <BoxView Grid.Row="1" Grid.Column="1" 
+                         HorizontalOptions="Center" 
+                         Color="White" VerticalOptions="Fill" WidthRequest="2" />
+                
+                <VerticalStackLayout Grid.Row="1" Grid.Column="2" 
+                                       HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="{Binding TotalAmountPerUser}" 
+                        HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="Total Per User" 
+                        HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1" Grid.Column="0" Margin="0, 15, 0, 0" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".3*" />
+                <ColumnDefinition Width=".7*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Label Text="Enter Total Bill" Grid.Row="0" Grid.Column="0" />
+            <Entry Grid.Row="0" Grid.Column="1" Placeholder="Enter total bill" Text="{Binding TotalAmount}" />
+            <!--<Label Text="Some Other Text" Grid.Row="0" Grid.Column="1" />-->
+            <Label Text="Enter Total Users" Grid.Row="1" Grid.Column="0" />
+            <Entry Grid.Row="1" Grid.Column="1" Placeholder="Enter total users" Text="{Binding TotalUsers}" />
+            
+            <Label Text="Select Tip Percentage" Grid.Row="2" Grid.Column="0" />
+            <Picker Grid.Row="2" Grid.Column="1" Title="Select Tip Percentage" SelectedIndexChanged="Picker_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>5</x:String>
+                        <x:String>10</x:String>
+                        <x:String>15</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <!--<Label Text="Even More Text" Grid.Row="1" Grid.Column="1" />-->
+        </Grid>
+    </Grid>
+</ContentPage>

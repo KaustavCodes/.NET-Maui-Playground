@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/MauiApp1/">
+    <Project Path="MauiApp1/MauiApp1.Shared/MauiApp1.Shared.csproj" />
+    <Project Path="MauiApp1/MauiApp1.Web/MauiApp1.Web.csproj" />
+    <Project Path="MauiApp1/MauiApp1/MauiApp1.csproj" />
+  </Folder>
+</Solution>

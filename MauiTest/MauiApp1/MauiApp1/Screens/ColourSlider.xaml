@@ -1,0 +1,73 @@
+<ContentPage
+     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     x:Class="MauiApp1.Screens.ColourSlider"
+             Title="ColourSlider">
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="1,1">
+            <GradientStop Color="{Binding GetColour}" />
+            <GradientStop Color="Blue" Offset="1" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    
+    <VerticalStackLayout>
+                <Label Text="This is a colour slider"
+               FontSize="22"
+               FontAttributes="Bold"
+               TextColor="Black"
+               HorizontalOptions="Center" />
+               <VerticalStackLayout Padding="20" VerticalOptions="Center">
+        
+        <Border Padding="10"
+               BackgroundColor="LightGray"
+               Stroke="#C49B33"
+               StrokeShape="RoundRectangle 10, 40, 30, 10"
+                StrokeThickness="4" >
+                <VerticalStackLayout>
+                    <Label Text="{Binding ColourRLabel}" TextColor="Black" />
+                    <Slider Minimum="0"
+                            Maximum="255"
+                            Value="{Binding ColourR}" ValueChanged="Slider_ValueChanged" x:Name="ColourRSlider" />
+                    <BoxView HeightRequest="1"
+                            BackgroundColor="Black"
+                            Margin="0,10" />
+                    <Label Text="{Binding ColourGLabel}" TextColor="Black" />
+                    <Slider Minimum="0"
+                            Maximum="255"
+                            Value="{Binding ColourG}" ValueChanged="Slider_ValueChanged" x:Name="ColourGSlider" />
+                    <BoxView HeightRequest="1"
+                            BackgroundColor="Black"
+                            Margin="0,10" />
+                    <Label Text="{Binding ColourBLabel}" TextColor="Black" />
+                    <Slider Minimum="0"
+                            Maximum="255"
+                            Value="{Binding ColourB}" ValueChanged="Slider_ValueChanged" x:Name="ColourBSlider" />
+                    <BoxView HeightRequest="1"
+                            BackgroundColor="Black"
+                            Margin="0,10" />
+                    <Label Text="{Binding GetColourHex}" TextColor="Black" />
+
+                    <Button x:Name="GoBackButton" Text="Go Back" Clicked="GoBackButton_Clicked" />
+
+                
+                    <Border Stroke="Black" Padding="20, 20, 20, 20" 
+                        StrokeShape="RoundRectangle 20, 20, 20, 20">
+                        <Border.Background>
+                                <RadialGradientBrush Center="0.5,0.5" Radius="0.5">
+                                    <GradientStop Color="Red" Offset="0.0" />
+                                    <GradientStop Color="Green" Offset="0.5" />
+                                    <GradientStop Color="Blue" Offset="1.0" />
+                                </RadialGradientBrush>
+                        </Border.Background>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="RandomColour_Clicked" />
+                        </Border.GestureRecognizers>
+                        <Button x:Name="RandomColour" Text="Random Colour" Clicked="RandomColour_Clicked" />
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+            <!-- Slider moved inside the Frame -->
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+    
+</ContentPage>

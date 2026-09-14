@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.EchoesSpacePage"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
+             BackgroundColor="{AppThemeBinding Light=#F8FAFC, Dark=#0F172A}"
+             Shell.NavBarIsVisible="False" Title="Echoes of Solace">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="{mi:Material Icon=Help}"
+                     Order="Primary"
+                     Priority="0"
+                     Clicked="OnHelpClicked" />
+                     
+        <ToolbarItem IconImageSource="{mi:Material Icon=DarkMode}"
+                     Order="Primary"
+                     Priority="0"
+                     Clicked="OnThemeToggleClicked" />
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <!-- 1. Drifting poems background -->
+        <AbsoluteLayout x:Name="PoemsContainer"
+                        InputTransparent="False" />
+
+        <!-- 2. Main content overlay -->
+        <Grid RowDefinitions="Auto,*,Auto"
+              Padding="0"
+              InputTransparent="True">
+
+            <!-- Center Poem Card -->
+            <Border Grid.Row="1"
+                    Margin="32,0"
+                    Padding="24,32"
+                    StrokeThickness="1"
+                    Stroke="{AppThemeBinding Light=#E2E8F0, Dark=#334155}"
+                    BackgroundColor="{AppThemeBinding Light=#FFFFFFF2, Dark=#1E293BF2}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    MaximumWidthRequest="340"
+                    InputTransparent="False">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="24" />
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+                            Offset="0,8"
+                            Radius="20"
+                            Opacity="0.08" />
+                </Border.Shadow>
+
+                <VerticalStackLayout Spacing="16">
+                    <!-- Quote -->
+                    <Label Text='"The breeze at dawn has secrets&#10;to tell you.&#10;Don&#39;t go back to sleep."'
+                           FontFamily="SourceSerif4"
+                           FontSize="20"
+                           FontAttributes="Italic"
+                           HorizontalTextAlignment="Center"
+                           LineHeight="1.4"
+                           TextColor="{AppThemeBinding Light=#0F172A, Dark=#F8FAFC}" />
+
+                    <!-- User's poem lines (bind this later) -->
+                    <Label x:Name="UserPoemLabel"
+                           Text=""
+                           FontFamily="SourceSerif4"
+                           FontSize="18"
+                           HorizontalTextAlignment="Center"
+                           LineHeight="1.4"
+                           TextColor="#10B981"
+                           IsVisible="False" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Bottom Button -->
+            <Button Grid.Row="2"
+                    Text="RETURN TO DIARY"
+                    Margin="0,0,0,40"
+                    HeightRequest="48"
+                    Padding="36,0"
+                    CornerRadius="20"
+                    FontSize="12"
+                    FontAttributes="Bold"
+                    CharacterSpacing="1.2"
+                    BackgroundColor="{AppThemeBinding Light=#00000014, Dark=#FFFFFF1A}"
+                    TextColor="{AppThemeBinding Light=#0F172A, Dark=#F8FAFC}"
+                    HorizontalOptions="Center"
+                    Clicked="OnBackClicked"
+                    InputTransparent="False" />
+        </Grid>
+    </Grid>
+</ContentPage>
